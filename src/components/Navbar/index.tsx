@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <Flex bg="white" height="44px" padding="6px 12px" justify="space-between">
-      <Flex align="center" width={{ base: "40px", md: "auto" }}>
+      <Flex align="center" width={{ base: "40px", md: "auto" }} flexShrink={0}>
         <Image src="/images/redditFace.svg" height="30px" />
         <Image
           src="/images/redditText.svg"
