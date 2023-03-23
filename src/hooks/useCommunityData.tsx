@@ -37,6 +37,7 @@ const useCommunityData = () => {
       setCommunityStateValue((prev) => ({
         ...prev,
         mySnippets: snippets as CommunitySnippet[],
+        snippetsFetched: true,
       }));
     } catch (error: any) {
       console.log("getMySnippets error", error);
@@ -130,11 +131,12 @@ const useCommunityData = () => {
       setCommunityStateValue((prev) => ({
         ...prev,
         mySnippets: [],
+        snippetsFetched: false,
       }));
       return;
     }
     getMySnippets();
-  }, [user]);
+  }, [user, communityStateValue.currentCommunity]);
 
   const getCommunityData = async (communityId: string) => {
     try {
@@ -162,6 +164,7 @@ const useCommunityData = () => {
 
   return {
     communityStateValue,
+    setCommunityStateValue,
     onJoinOrLeaveCommunity,
     loading,
   };

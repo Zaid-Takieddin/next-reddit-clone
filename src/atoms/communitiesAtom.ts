@@ -19,10 +19,12 @@ export interface CommunitySnippet {
 interface CommmunityState {
   mySnippets: CommunitySnippet[];
   currentCommunity?: Community;
+  snippetsFetched: boolean;
 }
 
 const defaultCommunityState: CommmunityState = {
   mySnippets: [],
+  snippetsFetched: false,
 };
 
 export const communityState = atom<CommmunityState>({

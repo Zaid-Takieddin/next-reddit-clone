@@ -34,8 +34,9 @@ const useDirectory = () => {
 
   React.useEffect(() => {
     const { currentCommunity } = communityStateValue;
+    const { communityId } = router.query;
 
-    if (currentCommunity) {
+    if (currentCommunity && communityId) {
       setDirectoryState((prev) => ({
         ...prev,
         selectedMenuItem: {
@@ -47,10 +48,11 @@ const useDirectory = () => {
         },
       }));
     }
-  }, [communityStateValue.currentCommunity]);
+  }, [communityStateValue.currentCommunity, router.query.communityId]);
 
   return {
     directoryState,
+    setDirectoryState,
     toggleMenuOpen,
     onSelectMenuItem,
   };

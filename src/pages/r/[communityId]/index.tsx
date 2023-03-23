@@ -6,6 +6,7 @@ import NotFound from "@/components/Community/NotFound";
 import PageContent from "@/components/Layout/PageContent";
 import Posts from "@/components/Posts";
 import { firestore } from "@/firebase/clientApp";
+import useCommunityData from "@/hooks/useCommunityData";
 import { doc, getDoc } from "firebase/firestore";
 import { GetServerSidePropsContext } from "next";
 import React from "react";
@@ -17,7 +18,7 @@ type CommunityPageProps = {
 };
 
 const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
-  const setCommunityStateValue = useSetRecoilState(communityState);
+  const { setCommunityStateValue } = useCommunityData();
 
   React.useEffect(() => {
     setCommunityStateValue((prev) => ({
